@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>愛知県高等学校吹奏楽コンクール 名古屋地区分析</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #34495e;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #2980b9;
+            border-bottom: 1px solid #ecf0f1;
+            padding-bottom: 5px;
+        }
+        .school-list {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .school-item {
+            margin: 8px 0;
+            padding: 5px;
+        }
+        .gold-award {
+            background-color: #f1c40f;
+            color: #2c3e50;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .silver-award {
+            background-color: #95a5a6;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .not-participated {
+            background-color: #e74c3c;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .stats-box {
+            background-color: #e8f4fd;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        .status-continued {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .status-revenge {
+            color: #e67e22;
+            font-weight: bold;
+        }
+        .status-new {
+            color: #9b59b6;
+            font-weight: bold;
+        }
+        .status-not-participating {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .total-schools {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        hr {
+            border: none;
+            height: 2px;
+            background-color: #bdc3c7;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>愛知県高等学校吹奏楽コンクール 名古屋地区大編成</h1>
+        <h2>2025年出場校一覧（2024年結果との比較分析）</h2>
+
+        <hr>
+
+        <h2><span class="emoji">■</span> 2025年 名古屋地区県大会予選出場校（大編成）</h2>
+        <div class="highlight">
+            <strong>※結果未発表</strong>
+        </div>
+
+        <h3>【1日目出場校】 <em>計12校</em></h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>順番</th>
+                    <th>学校名</th>
+                    <th>人数</th>
+                    <th>2024年結果</th>
+                    <th>状況</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>名城大学附属高等学校</td>
+                    <td>55人</td>
+                    <td><span class="silver-award">銀賞</span></td>
+                    <td class="status-revenge">リベンジ</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>名古屋市立菊里高等学校</td>
+                    <td>53人</td>
+                    <td><span class="silver-award">銀賞</span></td>
+                    <td class="status-revenge">リベンジ</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>東邦高等学校</td>
+                    <td>51人</td>
+                    <td><span class="gold-award">金賞・代表</span></td>
+                    <td class="status-continued">継続</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>南山高等・中学校男子部</td>
+                    <td>37人</td>
+                    <td><span class="silver-award">銀賞</span></td>
+                    <td class="status-revenge">リベンジ</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>名古屋経済大学市邨高等学校</td>
+                    <td>50人</td>
+                    <td><span class="silver-award">銀賞</span></td>
+                    <td class="status-revenge">リベンジ</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>愛知県立昭和高等学校</td>
+                    <td>38人</td>
+                    <td><span class="not-participated">不出場</span></td>
+                    <td class="status-new">新規</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>愛知県立熱田高等学校</td>
+                    <td>48人</td>
+                    <td><span class="gold-award">金賞・代表</span></td>
+                    <td class="status-continued">継続</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>大同大学大同高等学校</td>
+                    <td>55人</td>
+                    <td><span class="gold-award">金賞・代表</span></td>
+                    <td class="status-continued">継続</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>名古屋大谷高等学校</td>
+                    <td>55人</td>
+                    <td><span class="gold-award">県大会金賞・代表</span></td>
+                    <td class="status-continued">継続（特殊）</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>名古屋市立名東高等学校</td>
+                    <td>55人</td>
+                    <td><span class="silver-award">銀賞</span></td>
+                    <td class="status-revenge">リベンジ</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>愛知県立明和高等学校</td>
+                    <td>44人</td>
+                    <td><span class="gold-award">金賞・代表</span></td>
+                    <td class="status-continued">継続</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>愛知県立名古屋西高等学校</td>
+                    <td>45人</td>
+                    <td><span class="silver-award">銀賞</span></td>
+                    <td class="status-revenge">リベンジ</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>【2日目出場校】 <em>計11校</em></h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>順番</th>
+                    <th>学校名</th>
+                    <th>人数</th>
+                    <th>2024年結果</th>
+                    <th>状況</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>愛知県立瑞陵高等学校</td>
+                    <td>43人</td>
+                    <td><span class="silver-award">銀賞</span></td>
+                    <td class="status-revenge">リベンジ</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>名古屋大学教育学部附属中・高等学校</td>
+                    <td>48人</td>
+                    <td><span class="silver-award">銀賞</span></td>
+                    <td class="status-revenge">リベンジ</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>名古屋高等学校</td>
+                    <td>36人</td>
+                    <td><span class="silver-award">銀賞</span></td>
+                    <td class="status-revenge">リベンジ</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>中京大学附属中京高等学校</td>
+                    <td>47人</td>
+                    <td><span class="silver-award">銀賞</span></td>
+                    <td class="status-revenge">リベンジ</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>愛知みずほ大学瑞穂高校</td>
+                    <td>35人</td>
+                    <td><span class="not-participated">不出場</span></td>
+                    <td class="status-new">新規</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>愛知県立名古屋南高等学校</td>
+                    <td>55人</td>
+                    <td><span class="gold-award">金賞・代表</span></td>
+                    <td class="status-continued">継続</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>名古屋市立名古屋商業高等学校</td>
+                    <td>45人</td>
+                    <td><span class="gold-award">金賞・代表</span></td>
+                    <td class="status-continued">継続</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>愛知淑徳高等学校</td>
+                    <td>55人</td>
+                    <td><span class="gold-award">金賞・代表</span></td>
+                    <td class="status-continued">継続</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>東海中学校・高等学校</td>
+                    <td>38人</td>
+                    <td><span class="gold-award">金賞・代表</span></td>
+                    <td class="status-continued">継続</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>愛知県立旭丘高等学校</td>
+                    <td>32人</td>
+                    <td><span class="silver-award">銀賞</span></td>
+                    <td class="status-revenge">リベンジ</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>愛知県立天白高等学校</td>
+                    <td>41人</td>
+                    <td><span class="gold-award">金賞・代表</span></td>
+                    <td class="status-continued">継続</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="total-schools">合計出場校数：23校</div>
+
+
+        <hr>
+
+        <h2><span class="emoji">■</span> 継続・変化分析</h2>
+
+        <h3>【連続出場校（2024年金賞・代表→2025年出場）】 <em>9校全校</em></h3>
+        <div class="stats-box">
+            <p><strong class="status-continued">✅ 継続率100%</strong> - 名古屋地区の特徴</p>
+            <ul>
+                <li>愛知県立明和高等学校 <strong>【金賞・代表 → 継続】</strong></li>
+                <li>大同大学大同高等学校 <strong>【金賞・代表 → 継続】</strong></li>
+                <li>愛知淑徳高等学校 <strong>【金賞・代表 → 継続】</strong></li>
+                <li>愛知県立天白高等学校 <strong>【金賞・代表 → 継続】</strong></li>
+                <li>愛知県立熱田高等学校 <strong>【金賞・代表 → 継続】</strong></li>
+                <li>東邦高等学校 <strong>【金賞・代表 → 継続】</strong></li>
+                <li>名古屋市立名古屋商業高等学校 <strong>【金賞・代表 → 継続】</strong></li>
+                <li>愛知県立名古屋南高等学校 <strong>【金賞・代表 → 継続】</strong></li>
+                <li>東海中学校・高等学校 <strong>【金賞・代表 → 継続】</strong></li>
+            </ul>
+        </div>
+
+        <h3>【リベンジ組（2024年銀賞→2025年再挑戦）】 <em>11校</em></h3>
+        <div class="stats-box">
+            <p><span class="emoji">🔄</span> <strong>再挑戦校</strong></p>
+            <ul>
+                <li>名古屋市立菊里高等学校 <strong>【銀賞 → リベンジ】</strong></li>
+                <li>南山高等・中学校男子部 <strong>【銀賞 → リベンジ】</strong></li>
+                <li>名古屋経済大学市邨高等学校 <strong>【銀賞 → リベンジ】</strong></li>
+                <li>名古屋市立名東高等学校 <strong>【銀賞 → リベンジ】</strong></li>
+                <li>愛知県立名古屋西高等学校 <strong>【銀賞 → リベンジ】</strong></li>
+                <li>愛知県立瑞陵高等学校 <strong>【銀賞 → リベンジ】</strong></li>
+                <li>名古屋大学教育学部附属中・高等学校 <strong>【銀賞 → リベンジ】</strong></li>
+                <li>名古屋高等学校 <strong>【銀賞 → リベンジ】</strong></li>
+                <li>中京大学附属中京高等学校 <strong>【銀賞 → リベンジ】</strong></li>
+                <li>愛知県立旭丘高等学校 <strong>【銀賞 → リベンジ】</strong></li>
+                <li>名城大学附属高等学校 <strong>【銀賞 → リベンジ】</strong></li>
+            </ul>
+        </div>
+
+        <h3>【新規・復帰校】 <em>2校</em></h3>
+        <div class="stats-box">
+            <p><span class="emoji">🆕</span> <strong>新たな挑戦</strong></p>
+            <ul>
+                <li>愛知県立昭和高等学校 <strong>【不出場 → 新規】</strong></li>
+                <li>愛知みずほ大学瑞穂高校 <strong>【不出場 → 新規】</strong></li>
+            </ul>
+        </div>
+
+        <h3>【不出場校（2024年銀賞）】 <em>2校</em></h3>
+        <div class="stats-box">
+            <p><span class="emoji">❌</span> <strong>今回不出場</strong></p>
+            <ul>
+                <li>愛知県立千種高等学校 <strong>【銀賞 → 不出場】</strong></li>
+                <li>名古屋市立富田高等学校 <strong>【銀賞 → 不出場】</strong></li>
+            </ul>
+        </div>
+
+        <h3>【特別な動き】</h3>
+        <div class="highlight">
+            <p><span class="emoji">⚠️</span> <strong>名古屋大谷高等学校</strong></p>
+            <ul>
+                <li>2024年：県大会金賞・代表（東海大会出場）</li>
+                <li>2025年：地区予選から再スタート</li>
+                <li><strong>東海大会出場校が地区予選に戻る異例のケース</strong></li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2><span class="emoji">■</span> 統計データ</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>項目</th>
+                    <th>2024年</th>
+                    <th>2025年</th>
+                    <th>変化</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>地区予選出場校数</strong></td>
+                    <td>約14校</td>
+                    <td>23校</td>
+                    <td><strong>+9校増加</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>金賞・代表継続校</strong></td>
+                    <td>9校</td>
+                    <td>9校</td>
+                    <td><strong>100%継続</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>リベンジ組（銀賞→再挑戦）</strong></td>
+                    <td>-</td>
+                    <td>11校</td>
+                    <td>積極的再挑戦</td>
+                </tr>
+                <tr>
+                    <td><strong>新規参加</strong></td>
+                    <td>-</td>
+                    <td>2校</td>
+                    <td>新たな参入</td>
+                </tr>
+                <tr>
+                    <td><strong>銀賞校の継続率</strong></td>
+                    <td>-</td>
+                    <td>84.6%</td>
+                    <td>11/13校が再挑戦</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2><span class="emoji">■</span> 名古屋地区の特徴</h2>
+
+        <h3><span class="emoji">🎯</span> 他地区との違い</h3>
+        <ul>
+            <li><strong>継続率の高さ</strong>：金賞・代表校が全校継続出場（100%）</li>
+            <li><strong>安定した実力</strong>：強豪校の地位維持</li>
+            <li><strong>競争の激化</strong>：出場校数の大幅増加（+9校）</li>
+            <li><strong>リベンジ精神</strong>：銀賞校の高い再挑戦率（84.6%）</li>
+        </ul>
+
+        <h3><span class="emoji">🔥</span> 注目ポイント</h3>
+        <ul>
+            <li><strong>激戦必至</strong>：23校による代表枠争い</li>
+            <li><strong>名古屋大谷の復活劇</strong>：東海大会出場校の地区予選復帰</li>
+            <li><strong>レベルアップ</strong>：銀賞校の大量再挑戦でボトムアップ</li>
+            <li><strong>新陳代謝</strong>：新規参加校vs既存強豪校の構図</li>
+        </ul>
+
+        <h3><span class="emoji">🏆</span> 予想される激戦区</h3>
+        <ol>
+            <li><strong>確実視される継続組</strong>：2024年金賞・代表9校</li>
+            <li><strong>台風の目</strong>：名古屋大谷高等学校の実力</li>
+            <li><strong>ダークホース</strong>：リベンジに燃える銀賞組11校</li>
+            <li><strong>新風</strong>：新規参加2校の可能性</li>
+        </ol>
+
+        <h3><span class="emoji">📅</span> 今後の展望</h3>
+        <ul>
+            <li><strong>結果発表</strong>：代表校決定により詳細分析実施予定</li>
+            <li><strong>レベル向上</strong>：全体的な競技力向上が期待</li>
+            <li><strong>世代交代</strong>：新旧交代の可能性</li>
+            <li><strong>東海大会予想</strong>：名古屋地区からの代表校数に注目</li>
+        </ul>
+
+        <hr>
+
+        <p style="text-align: center; color: #7f8c8d; font-style: italic;">
+            ※この資料は2025年1月時点の情報に基づいて作成<br>
+            ※2024年結果情報を含む完全版
+        </p>
+    </div>
+</body>
+</html>

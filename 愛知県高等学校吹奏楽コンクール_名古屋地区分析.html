@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>愛知県高等学校吹奏楽コンクール 名古屋地区分析</title>
+    <style>
+        body {
+            font-family: 'Yu Gothic', 'Hiragino Sans', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: bold;
+        }
+        .header h2 {
+            margin: 10px 0 0 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 30px;
+        }
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .section-2025 {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            border-left: 5px solid #2196f3;
+        }
+        .section-2024 {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
+            border-left: 5px solid #4caf50;
+        }
+        .section-analysis {
+            background: linear-gradient(135deg, #fff3e0 0%, #fce4ec 100%);
+            border-left: 5px solid #ff9800;
+        }
+        .section-stats {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1f5fe 100%);
+            border-left: 5px solid #9c27b0;
+        }
+        h3 {
+            color: #2c3e50;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        h4 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 20px 0 15px 0;
+        }
+        .school-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .school-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .school-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .school-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .school-details {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin: 5px 5px 0 0;
+        }
+        .badge-gold {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #d68910;
+        }
+        .badge-silver {
+            background: linear-gradient(135deg, #c0c0c0 0%, #dcdcdc 100%);
+            color: #666;
+        }
+        .badge-rep {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+        }
+        .badge-new {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+        }
+        .badge-revenge {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+        }
+        .badge-continue {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #e74c3c;
+            display: block;
+        }
+        .stat-label {
+            font-size: 1em;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .comparison-table th {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        .comparison-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        .highlight-continue {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%) !important;
+        }
+        .highlight-revenge {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%) !important;
+        }
+        .special-note {
+            background: linear-gradient(135deg, #ffe0e6 0%, #ffd6e8 100%);
+            border: 2px solid #e91e63;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .special-note h4 {
+            color: #c2185b;
+            margin-top: 0;
+        }
+        .icon {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        @media (max-width: 768px) {
+            .school-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎵 愛知県高等学校吹奏楽コンクール</h1>
+            <h2>名古屋地区大編成 2024年→2025年 比較分析</h2>
+        </div>
+        
+        <div class="content">
+            <!-- 2025年出場校 -->
+            <div class="section section-2025">
+                <h3><span class="icon">🎭</span>2025年 名古屋地区県大会予選出場校（大編成）</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">23</span>
+                        <div class="stat-label">合計出場校数</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">9</span>
+                        <div class="stat-label">2024年金賞・代表校</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">11</span>
+                        <div class="stat-label">リベンジ組</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">2</span>
+                        <div class="stat-label">新規参加校</div>
+                    </div>
+                </div>
+
+                <h4>📅 1日目出場校（12校）</h4>
+                <div class="school-grid">
+                    <div class="school-card">
+                        <div class="school-name">名城大学附属高等学校</div>
+                        <div class="school-details">55人</div>
+                        <span class="badge badge-silver">2024年：銀賞</span>
+                        <span class="badge badge-revenge">リベンジ</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">名古屋市立菊里高等学校</div>
+                        <div class="school-details">53人</div>
+                        <span class="badge badge-silver">2024年：銀賞</span>
+                        <span class="badge badge-revenge">リベンジ</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">東邦高等学校</div>
+                        <div class="school-details">51人</div>
+                        <span class="badge badge-gold">2024年：金賞</span>
+                        <span class="badge badge-rep">代表</span>
+                        <span class="badge badge-continue">継続</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">南山高等・中学校男子部</div>
+                        <div class="school-details">37人</div>
+                        <span class="badge badge-silver">2024年：銀賞</span>
+                        <span class="badge badge-revenge">リベンジ</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">名古屋経済大学市邨高等学校</div>
+                        <div class="school-details">50人</div>
+                        <span class="badge badge-silver">2024年：銀賞</span>
+                        <span class="badge badge-revenge">リベンジ</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">愛知県立昭和高等学校</div>
+                        <div class="school-details">38人</div>
+                        <span class="badge badge-new">新規参加</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">愛知県立熱田高等学校</div>
+                        <div class="school-details">48人</div>
+                        <span class="badge badge-gold">2024年：金賞</span>
+                        <span class="badge badge-rep">代表</span>
+                        <span class="badge badge-continue">継続</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">大同大学大同高等学校</div>
+                        <div class="school-details">55人</div>
+                        <span class="badge badge-gold">2024年：金賞</span>
+                        <span class="badge badge-rep">代表</span>
+                        <span class="badge badge-continue">継続</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">名古屋市立名東高等学校</div>
+                        <div class="school-details">55人</div>
+                        <span class="badge badge-silver">2024年：銀賞</span>
+                        <span class="badge badge-revenge">リベンジ</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">愛知県立明和高等学校</div>
+                        <div class="school-details">44人</div>
+                        <span class="badge badge-gold">2024年：金賞</span>
+                        <span class="badge badge-rep">代表</span>
+                        <span class="badge badge-continue">継続</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">愛知県立名古屋西高等学校</div>
+                        <div class="school-details">45人</div>
+                        <span class="badge badge-silver">2024年：銀賞</span>
+                        <span class="badge badge-revenge">リベンジ</span>
+                    </div>
+                </div>
+
+                <h4>📅 2日目出場校（11校）</h4>
+                <div class="school-grid">
+                    <div class="school-card">
+                        <div class="school-name">愛知県立瑞陵高等学校</div>
+                        <div class="school-details">43人</div>
+                        <span class="badge badge-silver">2024年：銀賞</span>
+                        <span class="badge badge-revenge">リベンジ</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">名古屋大学教育学部附属中・高等学校</div>
+                        <div class="school-details">48人</div>
+                        <span class="badge badge-silver">2024年：銀賞</span>
+                        <span class="badge badge-revenge">リベンジ</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">名古屋高等学校</div>
+                        <div class="school-details">36人</div>
+                        <span class="badge badge-silver">2024年：銀賞</span>
+                        <span class="badge badge-revenge">リベンジ</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">中京大学附属中京高等学校</div>
+                        <div class="school-details">47人</div>
+                        <span class="badge badge-silver">2024年：銀賞</span>
+                        <span class="badge badge-revenge">リベンジ</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">愛知みずほ大学瑞穂高校</div>
+                        <div class="school-details">35人</div>
+                        <span class="badge badge-new">新規参加</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">愛知県立名古屋南高等学校</div>
+                        <div class="school-details">55人</div>
+                        <span class="badge badge-gold">2024年：金賞</span>
+                        <span class="badge badge-rep">代表</span>
+                        <span class="badge badge-continue">継続</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">名古屋市立名古屋商業高等学校</div>
+                        <div class="school-details">45人</div>
+                        <span class="badge badge-gold">2024年：金賞</span>
+                        <span class="badge badge-rep">代表</span>
+                        <span class="badge badge-continue">継続</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">愛知淑徳高等学校</div>
+                        <div class="school-details">55人</div>
+                        <span class="badge badge-gold">2024年：金賞</span>
+                        <span class="badge badge-rep">代表</span>
+                        <span class="badge badge-continue">継続</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">東海中学校・高等学校</div>
+                        <div class="school-details">38人</div>
+                        <span class="badge badge-gold">2024年：金賞</span>
+                        <span class="badge badge-rep">代表</span>
+                        <span class="badge badge-continue">継続</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">愛知県立旭丘高等学校</div>
+                        <div class="school-details">32人</div>
+                        <span class="badge badge-silver">2024年：銀賞</span>
+                        <span class="badge badge-revenge">リベンジ</span>
+                    </div>
+                    <div class="school-card">
+                        <div class="school-name">愛知県立天白高等学校</div>
+                        <div class="school-details">41人</div>
+                        <span class="badge badge-gold">2024年：金賞</span>
+                        <span class="badge badge-rep">代表</span>
+                        <span class="badge badge-continue">継続</span>
+                    </div>
+                </div>
+
+                <div class="special-note">
+                    <h4><span class="icon">⚠️</span>特別な動き</h4>
+                    <div class="school-card">
+                        <div class="school-name">名古屋大谷高等学校</div>
+                        <div class="school-details">55人</div>
+                        <span class="badge badge-gold">2024年：県大会金賞・代表</span>
+                        <p style="margin: 10px 0 0 0; font-size: 0.9em;">
+                            <strong>東海大会出場校が地区予選に復帰する異例のケース</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2024年結果 -->
+            <div class="section section-2024">
+                <h3><span class="icon">🏆</span>2024年 名古屋地区県大会予選結果</h3>
+                
+                <h4>金賞・代表校（9校）</h4>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>学校名</th>
+                            <th>日程</th>
+                            <th>結果</th>
+                            <th>2025年出場</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight-continue">
+                            <td>愛知県立明和高等学校</td>
+                            <td>1日目</td>
+                            <td><strong>金賞・代表</strong></td>
+                            <td>✅ 継続</td>
+                        </tr>
+                        <tr class="highlight-continue">
+                            <td>大同大学大同高等学校</td>
+                            <td>1日目</td>
+                            <td><strong>金賞・代表</strong></td>
+                            <td>✅ 継続</td>
+                        </tr>
+                        <tr class="highlight-continue">
+                            <td>愛知淑徳高等学校</td>
+                            <td>1日目</td>
+                            <td><strong>金賞・代表</strong></td>
+                            <td>✅ 継続</td>
+                        </tr>
+                        <tr class="highlight-continue">
+                            <td>愛知県立天白高等学校</td>
+                            <td>1日目</td>
+                            <td><strong>金賞・代表</strong></td>
+                            <td>✅ 継続</td>
+                        </tr>
+                        <tr class="highlight-continue">
+                            <td>愛知県立熱田高等学校</td>
+                            <td>1日目</td>
+                            <td><strong>金賞・代表</strong></td>
+                            <td>✅ 継続</td>
+                        </tr>
+                        <tr class="highlight-continue">
+                            <td>東邦高等学校</td>
+                            <td>2日目</td>
+                            <td><strong>金賞・代表</strong></td>
+                            <td>✅ 継続</td>
+                        </tr>
+                        <tr class="highlight-continue">
+                            <td>名古屋市立名古屋商業高等学校</td>
+                            <td>2日目</td>
+                            <td><strong>金賞・代表</strong></td>
+                            <td>✅ 継続</td>
+                        </tr>
+                        <tr class="highlight-continue">
+                            <td>愛知県立名古屋南高等学校</td>
+                            <td>2日目</td>
+                            <td><strong>金賞・代表</strong></td>
+                            <td>✅ 継続</td>
+                        </tr>
+                        <tr class="highlight-continue">
+                            <td>東海中学校・高等学校</td>
+                            <td>2日目</td>
+                            <td><strong>金賞・代表</strong></td>
+                            <td>✅ 継続</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 分析 -->
+            <div class="section section-analysis">
+                <h3><span class="icon">📊</span>継続・変化分析</h3>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">100%</span>
+                        <div class="stat-label">金賞・代表校継続率</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">84.6%</span>
+                        <div class="stat-label">銀賞校再挑戦率</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">+9校</span>
+                        <div class="stat-label">出場校数増加</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">1校</span>
+                        <div class="stat-label">東海大会校復帰</div>
+                    </div>
+                </div>
+
+                <h4>🔄 銀賞校の2025年出場状況</h4>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>学校名</th>
+                            <th>2024年結果</th>
+                            <th>2025年出場</th>
+                            <th>状況</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight-revenge">
+                            <td>名古屋市立菊里高等学校</td>
+                            <td>銀賞</td>
+                            <td>✅</td>
+                            <td>リベンジ</td>
+                        </tr>
+                        <tr class="highlight-revenge">
+                            <td>南山高等・中学校男子部</td>
+                            <td>銀賞</td>
+                            <td>✅</td>
+                            <td>リベンジ</td>
+                        </tr>
+                        <tr class="highlight-revenge">
+                            <td>名古屋経済大学市邨高等学校</td>
+                            <td>銀賞</td>
+                            <td>✅</td>
+                            <td>リベンジ</td>
+                        </tr>
+                        <tr class="highlight-revenge">
+                            <td>名古屋市立名東高等学校</td>
+                            <td>銀賞</td>
+                            <td>✅</td>
+                            <td>リベンジ</td>
+                        </tr>
+                        <tr class="highlight-revenge">
+                            <td>愛知県立名古屋西高等学校</td>
+                            <td>銀賞</td>
+                            <td>✅</td>
+                            <td>リベンジ</td>
+                        </tr>
+                        <tr>
+                            <td>愛知県立千種高等学校</td>
+                            <td>銀賞</td>
+                            <td>❌</td>
+                            <td>不出場</td>
+                        </tr>
+                        <tr>
+                            <td>名古屋市立富田高等学校</td>
+                            <td>銀賞</td>
+                            <td>❌</td>
+                            <td>不出場</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 統計・展望 -->
+            <div class="section section-stats">
+                <h3><span class="icon">🎯</span>名古屋地区の特徴と展望</h3>
+                
+                <h4>🏅 他地区との違い</h4>
+                <ul>
+                    <li><strong>継続率の高さ</strong>：金賞・代表校が全校継続出場（100%）</li>
+                    <li><strong>安定した実力</strong>：強豪校の地位維持</li>
+                    <li><strong>競争の激化</strong>：出場校数の大幅増加（+9校）</li>
+                    <li><strong>リベンジ精神</strong>：銀賞校の高い再挑戦率（84.6%）</li>
+                </ul>
+
+                <h4>🔥 注目ポイント</h4>
+                <ul>
+                    <li><strong>激戦必至</strong>：23校による代表枠争い</li>
+                    <li><strong>名古屋大谷の復活劇</strong>：東海大会出場校の地区予選復帰</li>
+                    <li><strong>レベルアップ</strong>：銀賞校の大量再挑戦でボトムアップ</li>
+                    <li><strong>新陳代謝</strong>：新規参加校vs既存強豪校の構図</li>
+                </ul>
+
+                <h4>📅 今後の展望</h4>
+                <p>結果発表後、代表校決定により詳細分析を実施予定。全体的な競技力向上と世代交代に注目。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
