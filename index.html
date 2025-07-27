@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>愛知県高等学校吹奏楽コンクール 代表校一覧（2024-2025比較）</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', 'Yu Gothic', 'Meiryo', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .legend {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+        }
+        
+        .legend h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            font-size: 14px;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 12px;
+            font-weight: 600;
+            text-align: center;
+            font-size: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        th:first-child { border-top-left-radius: 15px; }
+        th:last-child { border-top-right-radius: 15px; }
+        
+        .district-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            padding: 12px;
+            font-size: 16px;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: middle;
+        }
+        
+        .school-name {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 15px;
+        }
+        
+        .award-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 12px;
+            margin: 2px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: transform 0.2s ease;
+        }
+        
+        .award-badge:hover {
+            transform: scale(1.05);
+        }
+        
+        .gold { 
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #8b6914;
+        }
+        
+        .silver { 
+            background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
+            color: #555;
+        }
+        
+        .bronze { 
+            background: linear-gradient(135deg, #cd7f32 0%, #d4a574 100%);
+            color: white;
+        }
+        
+        .representative { 
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+        }
+        
+        .special { 
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            color: white;
+        }
+        
+        .seed { 
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            border: 2px solid #1a252f;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+            to { box-shadow: 0 4px 20px rgba(44, 62, 80, 0.4); }
+        }
+        
+        .status-both { 
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-left: 5px solid #28a745;
+        }
+        
+        .status-2025 { 
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left: 5px solid #ffc107;
+        }
+        
+        .status-2024 { 
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            border-left: 5px solid #dc3545;
+        }
+        
+        .status-row {
+            transition: all 0.3s ease;
+        }
+        
+        .status-row:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .status-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .icon { font-size: 18px; }
+        .both-icon { color: #28a745; }
+        .new-icon { color: #ffc107; }
+        .old-icon { color: #dc3545; }
+        
+        .no-data {
+            color: #999;
+            font-style: italic;
+            font-size: 13px;
+        }
+        
+        .summary {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+            border: 2px solid #28a745;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+        }
+        
+        .summary h2 {
+            color: #28a745;
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .summary-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        
+        .summary-item h4 {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .summary-item p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .school-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+        
+        .school-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .school-list li:last-child {
+            border-bottom: none;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .legend-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            table {
+                font-size: 12px;
+            }
+            
+            th, td {
+                padding: 8px 6px;
+            }
+            
+            .award-badge {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+        }
+        
+        .filter-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎺 愛知県高等学校吹奏楽コンクール</h1>
+            <div class="subtitle">代表校一覧（2024-2025比較）</div>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">35</div>
+                <div class="stat-label">2025年県大会出場校</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">26</div>
+                <div class="stat-label">地区大会代表校</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">7</div>
+                <div class="stat-label">名古屋地区代表校</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2</div>
+                <div class="stat-label">シード校</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">連続代表校</div>
+            </div>
+        </div>
+        
+        <div class="filter-section">
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterTable('all')">全て表示</button>
+                <button class="filter-btn" onclick="filterTable('continuous')">連続代表</button>
+                <button class="filter-btn" onclick="filterTable('new')">新規代表</button>
+                <button class="filter-btn" onclick="filterTable('seed')">シード校</button>
+                <button class="filter-btn" onclick="filterTable('2024-only')">2024年のみ</button>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <h3>🏷️ 凡例</h3>
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <span class="award-badge gold">🏆 金賞</span>
+                </div>
+                <div class="legend-item">
+                    <span class="award-badge silver">🥈 銀賞</span>
+                </div>
+                <div class="legend-item">
+                    <span class="award-badge bronze">🥉 銅賞</span>
+                </div>
+                <div class="legend-item">
+                    <span class="award-badge representative">🎯 代表</span>
+                </div>
+                <div class="legend-item">
+                    <span class="award-badge special">⭐ 特別</span>
+                </div>
+                <div class="legend-item">
+                    <span class="award-badge seed">👑 シード</span>
+                </div>
+                <div class="legend-item">
+                    <span class="status-icon both-icon">🔗 両年代表</span>
+                </div>
+                <div class="legend-item">
+                    <span class="status-icon new-icon">🆕 2025年のみ</span>
+                </div>
+                <div class="legend-item">
+                    <span class="status-icon old-icon">📅 2024年のみ</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="schoolTable">
+                <thead>
+                    <tr>
+                        <th style="width: 8%;">地区</th>
+                        <th style="width: 25%;">学校名</th>
+                        <th style="width: 25%;">2025年地区大会</th>
+                        <th style="width: 25%;">2024年県大会</th>
+                        <th style="width: 17%;">状況</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 東三河地区 -->
+                    <tr class="district-header">
+                        <td colspan="5">🌅 東三河地区</td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>東三河</td>
+                        <td class="school-name">愛知県立小坂井高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td><span class="award-badge silver">🥈 銀賞</span></td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>東三河</td>
+                        <td class="school-name">豊川高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td><span class="award-badge silver">🥈 銀賞</span></td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>東三河</td>
+                        <td class="school-name">桜丘高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td><span class="award-badge silver">🥈 銀賞</span></td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>東三河</td>
+                        <td class="school-name">愛知県立豊橋東高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td><span class="award-badge silver">🥈 銀賞</span></td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+
+                    <!-- 西三河北地区 -->
+                    <tr class="district-header">
+                        <td colspan="5">🏔️ 西三河北地区</td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>西三河北</td>
+                        <td class="school-name">愛知県立岡崎西高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td><span class="award-badge silver">🥈 銀賞</span></td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>西三河北</td>
+                        <td class="school-name">愛知県立幸田高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td class="no-data">県大会不出場</td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>西三河北</td>
+                        <td class="school-name">愛知県立豊田西高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td><span class="award-badge gold">🏆 金賞</span></td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2024" data-category="2024-only">
+                        <td>西三河北</td>
+                        <td class="school-name">愛知県立岡崎北高等学校</td>
+                        <td class="no-data">地区大会なし</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="status-icon old-icon">
+                                <span class="icon">📅</span>
+                                県大会代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2024" data-category="2024-only">
+                        <td>西三河北</td>
+                        <td class="school-name">愛知県立豊田北高等学校</td>
+                        <td class="no-data">地区大会なし</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="status-icon old-icon">
+                                <span class="icon">📅</span>
+                                2024年代表
+                            </span>
+                        </td>
+                    </tr>
+
+                    <!-- 西三河南地区 -->
+                    <tr class="district-header">
+                        <td colspan="5">🏞️ 西三河南地区</td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>西三河南</td>
+                        <td class="school-name">愛知県立安城高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                安城系列
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>西三河南</td>
+                        <td class="school-name">愛知県立西尾高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td class="no-data">県大会不出場</td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>西三河南</td>
+                        <td class="school-name">愛知県立刈谷北高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td><span class="award-badge silver">🥈 銀賞</span></td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-both" data-category="continuous">
+                        <td>西三河南</td>
+                        <td class="school-name">安城学園高等学校</td>
+                        <td>
+                            <span class="award-badge special">⭐ 特別演奏</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                            <span class="award-badge special">⭐ 県教委賞</span>
+                        </td>
+                        <td>
+                            <span class="status-icon both-icon">
+                                <span class="icon">🔗</span>
+                                連続代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2024" data-category="2024-only">
+                        <td>西三河南</td>
+                        <td class="school-name">愛知県立刈谷高等学校</td>
+                        <td class="no-data">地区大会なし</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="status-icon old-icon">
+                                <span class="icon">📅</span>
+                                2024年代表
+                            </span>
+                        </td>
+                    </tr>
+
+                    <!-- 知多地区 -->
+                    <tr class="district-header">
+                        <td colspan="5">🌊 知多地区</td>
+                    </tr>
+                    <tr class="status-row status-both" data-category="continuous">
+                        <td>知多</td>
+                        <td class="school-name">日本福祉大学付属高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="status-icon both-icon">
+                                <span class="icon">🔗</span>
+                                連続代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>知多</td>
+                        <td class="school-name">愛知県立半田高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td class="no-data">県大会不出場</td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>知多</td>
+                        <td class="school-name">愛知県立阿久比高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td><span class="award-badge silver">🥈 銀賞</span></td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>知多</td>
+                        <td class="school-name">愛知県立東海南高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td class="no-data">県大会不出場</td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+
+                    <!-- 東尾張地区 -->
+                    <tr class="district-header">
+                        <td colspan="5">🏙️ 東尾張地区</td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>東尾張</td>
+                        <td class="school-name">愛知県立西春高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td class="no-data">県大会不出場</td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>東尾張</td>
+                        <td class="school-name">愛知県立長久手高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td><span class="award-badge gold">🏆 金賞</span></td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>東尾張</td>
+                        <td class="school-name">中部大学第一高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td><span class="award-badge gold">🏆 金賞</span></td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>東尾張</td>
+                        <td class="school-name">愛知県立春日井西高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td class="no-data">県大会不出場</td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-both" data-category="continuous">
+                        <td>東尾張</td>
+                        <td class="school-name">愛知県立旭野高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="status-icon both-icon">
+                                <span class="icon">🔗</span>
+                                連続代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2024" data-category="seed">
+                        <td>東尾張</td>
+                        <td class="school-name">中部大学春日丘高等学校</td>
+                        <td>
+                            <span class="award-badge seed">👑 シード</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="status-icon old-icon">
+                                <span class="icon">👑</span>
+                                シード継続
+                            </span>
+                        </td>
+                    </tr>
+
+                    <!-- 西尾張地区 -->
+                    <tr class="district-header">
+                        <td colspan="5">🌸 西尾張地区</td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>西尾張</td>
+                        <td class="school-name">愛知県立一宮西高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td><span class="award-badge silver">🥈 銀賞</span></td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>西尾張</td>
+                        <td class="school-name">愛知県立一宮高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td><span class="award-badge silver">🥈 銀賞</span></td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>西尾張</td>
+                        <td class="school-name">愛知県立木曽川高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td><span class="award-badge gold">🏆 金賞</span></td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>西尾張</td>
+                        <td class="school-name">愛知県立五条高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td class="no-data">県大会不出場</td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>西尾張</td>
+                        <td class="school-name">愛知県立一宮南高等学校</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td><span class="award-badge silver">🥈 銀賞</span></td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                新規代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2024" data-category="seed">
+                        <td>西尾張</td>
+                        <td class="school-name">愛知県立江南高等学校</td>
+                        <td>
+                            <span class="award-badge seed">👑 シード</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="status-icon old-icon">
+                                <span class="icon">👑</span>
+                                シード継続
+                            </span>
+                        </td>
+                    </tr>
+
+                    <!-- 名古屋地区 -->
+                    <tr class="district-header">
+                        <td colspan="5">🏯 名古屋地区（県大会代表校）</td>
+                    </tr>
+                    <tr class="status-row status-2025" data-category="new">
+                        <td>名古屋</td>
+                        <td class="school-name">聖カタリナ学園光ヶ丘女子高等学校</td>
+                        <td class="no-data">地区大会なし</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="status-icon new-icon">
+                                <span class="icon">🆕</span>
+                                県大会代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-both" data-category="continuous">
+                        <td>名古屋</td>
+                        <td class="school-name">名古屋大谷高等学校</td>
+                        <td class="no-data">地区大会なし</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="status-icon both-icon">
+                                <span class="icon">🔗</span>
+                                連続代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-both" data-category="continuous">
+                        <td>名古屋</td>
+                        <td class="school-name">愛知県立名古屋南高等学校</td>
+                        <td class="no-data">地区大会なし</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="status-icon both-icon">
+                                <span class="icon">🔗</span>
+                                連続代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2024" data-category="2024-only">
+                        <td>名古屋</td>
+                        <td class="school-name">東邦高等学校</td>
+                        <td class="no-data">地区大会なし</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                        </td>
+                        <td>
+                            <span class="status-icon old-icon">
+                                <span class="icon">📅</span>
+                                2024年代表
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="status-row status-2024" data-category="2024-only">
+                        <td>名古屋</td>
+                        <td class="school-name">愛知工業大学名電高等学校</td>
+                        <td class="no-data">地区大会なし</td>
+                        <td>
+                            <span class="award-badge gold">🏆 金賞</span>
+                            <span class="award-badge representative">🎯 代表</span>
+                            <span class="award-badge special">⭐ 県教委賞</span>
+                        </td>
+                        <td>
+                            <span class="status-icon old-icon">
+                                <span class="icon">📅</span>
+                                2024年代表
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="summary">
+            <h2>📊 まとめ</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <h4>🔗 連続代表校（5校）</h4>
+                    <ul class="school-list">
+                        <li>安城学園高等学校</li>
+                        <li>日本福祉大学付属高等学校</li>
+                        <li>愛知県立旭野高等学校</li>
+                        <li>名古屋大谷高等学校</li>
+                        <li>愛知県立名古屋南高等学校</li>
+                    </ul>
+                </div>
+                <div class="summary-item">
+                    <h4>👑 シード校（2校）</h4>
+                    <ul class="school-list">
+                        <li>中部大学春日丘高等学校（東尾張）</li>
+                        <li>愛知県立江南高等学校（西尾張）</li>
+                    </ul>
+                </div>
+                <div class="summary-item">
+                    <h4>🆕 2025年新規代表</h4>
+                    <p>地区大会19校＋県大会1校（聖カタリナ）＝計20校</p>
+                </div>
+                <div class="summary-item">
+                    <h4>🎺 2025年県大会出場</h4>
+                    <p>地区代表26校＋名古屋7校＋シード2校＝計35校</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterTable(category) {
+            const rows = document.querySelectorAll('#schoolTable tbody tr.status-row');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // ボタンのアクティブ状態を更新
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // 行の表示/非表示を切り替え
+            rows.forEach(row => {
+                if (category === 'all') {
+                    row.style.display = '';
+                } else if (category === 'seed') {
+                    // シード校の処理
+                    const hasSeeddBadge = row.querySelector('.award-badge.seed');
+                    row.style.display = hasSeeddBadge ? '' : 'none';
+                } else {
+                    const hasCategory = row.dataset.category === category;
+                    row.style.display = hasCategory ? '' : 'none';
+                }
+            });
+            
+            // 地区ヘッダーの表示制御
+            const districtHeaders = document.querySelectorAll('#schoolTable tbody tr.district-header');
+            districtHeaders.forEach(header => {
+                let nextRow = header.nextElementSibling;
+                let hasVisibleRows = false;
+                
+                while (nextRow && !nextRow.classList.contains('district-header')) {
+                    if (nextRow.style.display !== 'none') {
+                        hasVisibleRows = true;
+                        break;
+                    }
+                    nextRow = nextRow.nextElementSibling;
+                }
+                
+                header.style.display = hasVisibleRows ? '' : 'none';
+            });
+        }
+        
+        // 表の行にホバー効果を追加
+        document.querySelectorAll('.status-row').forEach(row => {
+            row.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(5px)';
+            });
+            
+            row.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
+    </script>
+</body>
+</html>
